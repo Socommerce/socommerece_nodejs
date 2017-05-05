@@ -1,35 +1,13 @@
-#wrapper
-  // Sidebar
-  #sidebar-wrapper
-    ul.sidebar-nav
-      li.sidebar-brand
-        a(href='/')
-          i.fa.fa-cube
-          | Playstore App
-      br
-      li
-        if user.profile.picture
-          img(src=user.profile.picture  )
-        else
-          img(src=user.gravatar(60) )
-            
+.navbar.white.navbar-default(style='background-color:rgba(255,255,255,0.0)')
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/')
+        i.fa.fa-cube
+        | Socommerece
+
         
-
-      li.dropdown(class=(title == 'Account Management') ? 'active' : undefined)
-        a.dropdown-toggle(href='#', data-toggle='dropdown')
-          span= user.profile.name || user.email || user.id
-          i.caret
-
-        ul.dropdown-menu
-          li
-            a(href='/account') My Account
-          li.divider
-          li
-            a(href='/logout') Logout
-      br
-      li(class=(title == 'Home') ? 'active' : undefined)
-        a(href='/') Home
-
-      
-      
-

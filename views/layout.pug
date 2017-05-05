@@ -10,10 +10,8 @@ html
     title #{title} - Reviews App
     link(rel='shortcut icon', href='/favicon.png')
     link(rel='stylesheet', href='/css/custom.css')
-    link(rel='stylesheet', href='/css/simple-sidebar.css')
     link(rel='stylesheet', href='/css/main.css')
     link(rel='stylesheet', href='/css/demo_style.css')
-    link(rel='stylesheet', href='/css/jquery.steps.css')
     script(src='/js/lib/jquery-2.2.4.min.js')
     link(rel='stylesheet', href='/css/smart_wizard.css')
 
@@ -22,25 +20,17 @@ html
     
 
 
-  body
+  body.home
+
+    include partials/header
 
     
-
     
+    .container
+        include partials/flash
+        block content
     
-    .col-sm-12
-        .col-sm-3
-            include partials/header
-
-        .col-sm-9
-            a#menu-toggle.btn.btn-default.pull-right(href='#menu-toggle')
-                i.fa.fa-bars
-            include partials/flash
-            block content
-
-    include partials/footerpage
-        
-        
+    include partials/footer
 
     
     script(src='/js/lib/bootstrap.min.js')
