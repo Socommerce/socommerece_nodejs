@@ -5,7 +5,7 @@
   "author": "Spritle",
   "license": "MIT",
   "scripts": {
-    "start": "gulp",
+    "start": "node app.js",
     "setup-secrets": "gulp setup-secrets",
     "monstart": "nodemon app.js",
     "agendash": "agendash --db=mongodb://localhost/agenda --port=3002",
