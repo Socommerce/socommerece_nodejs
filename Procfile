@@ -1,1 +1,1 @@
-web: npm rebuild apt-get install build-essential && npm install && node app.js 
+web: npm apt-get install build-essential && npm install && node app.js 
