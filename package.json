@@ -94,5 +94,18 @@
       "no-console": 0,
       "no-plusplus": 0
     }
-  }
+  },
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Socommerce/socommerece_nodejs.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Socommerce/socommerece_nodejs/issues"
+  },
+  "homepage": "https://github.com/Socommerce/socommerece_nodejs#readme"
 }
