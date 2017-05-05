@@ -56,7 +56,7 @@ const app = express();
  * Connect to MongoDB.
  */
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://32-3a.mongo.evennode.com:27017,32-3b.mongo.evennode.com:27017/24cf7704ca372581f0b9e24b3a829516?replicaSet=us32-1');
+mongoose.connect('mongodb://24cf7704ca372581f0b9e24b3a829516:admin@32-3a.mongo.evennode.com:27017,32-3b.mongo.evennode.com:27017/24cf7704ca372581f0b9e24b3a829516?replicaSet=us32-1');
 mongoose.connection.on('error', () => {
   console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
   process.exit();
