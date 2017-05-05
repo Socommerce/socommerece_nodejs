@@ -1,1 +1,1 @@
-web: node app.js 
+web: npm rebuild node-sass && npm install && node app.js 
