@@ -1,1 +1,1 @@
-web: npm apt-get install build-essential && npm install && node app.js 
+web:  apt-get install build-essential && npm install && node app.js 
