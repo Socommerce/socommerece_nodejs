@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+  .page-header
+    h3= app
+
+  p= 'App Name : ' + app
+  p= 'Packgae Name : ' +  pkgname
+  p=  pollingData ? 'Status : Active' : 'Status : Inactive'
+  .panel.panel-success
+    .panel-heading Polling Details
+    .panel-body
+      h5 Current polling frequency :  
+      b= pfreq + ' minutes'
+      button.btn.btn-default.btn-xs(type='button', data-toggle='collapse', data-target='#pfreq') Change
+      div.collapse(id='pfreq')
+        h6 Select Polling Frequency
+        form.form-horizontal(action='/api/pspollfreq', method='POST')
+          input(type='hidden', name='pkgname', value=pkgname)
+          fieldset.form-group
+            .form-check-inline
+              small.form-check-inline
+                input#optionsRadios1.form-check-input(type='radio', name='pollfreq', value=5, checked='')
+                |         5 min
+            .form-check-inline
+              small.form-check-inline
+                input#optionsRadios2.form-check-input(type='radio', name='pollfreq', value=10)
+                |         10 min
+            .form-check-inline
+              small.form-check-inline
+                input#optionsRadios3.form-check-input(type='radio', name='pollfreq', value=15)
+                |         15 min
+          .form-group
+            .col-sm-offset-3.col-sm-4
+              button.btn.btn.btn-default.btn-xs(type='submit') Update
+      br
+      br
+      br
+      h5 Start/Stop Polling
+      form.form-horizontal( action='/api/pspollpost' , method='POST')
+       input(type='hidden', name='pkgname', value=pkgname)
+       .form-group
+        .col-sm-7
+         if pollingData
+          button.col-sm-3.btn.btn-danger(type='submit') STOP
+         else
+          button.col-sm-3.btn.btn-success(type='submit') START

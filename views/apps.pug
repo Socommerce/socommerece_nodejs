@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  .page-header
+    h3 Apps
+
+  div.row
+    div.col-sm-12
+      table.table
+        thead
+          tr
+            td App Name
+            td Package Name
+            td App Client Mail
+            td Actions
+        if applist
+          each val in applist
+            tr
+              td= val.appname
+              td= val.pkgname
+              td= val.gappclemail
+              td
+                a(href='/apps/check/'+val._id) Check
+
+  hr
+  h4 Add an App
+  form.form-horizontal(enctype='multipart/form-data', action='/api/apps/add', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label.col-sm-3.control-label(for='appname') App Name
+      .col-sm-7
+        input.form-control(name='appname', id='appname')
+    .form-group
+      label.col-sm-3.control-label(for='pkgname') Package Name
+      .col-sm-7
+        input.form-control(type='text', name='pkgname', id='pkgname')
+    .form-group
+      label.col-sm-3.control-label(for='gappjson') Google API JSON File
+      .col-sm-7
+        label.sr-only(for='file') File
+        .input-group
+          input.form-control(type='text', name='filename', placeholder='No file selected', readonly='')
+          span.input-group-btn
+            .btn.btn-default.custom-file-uploader
+              input(type='file', name='gappjson', onchange='this.form.filename.value = this.files[0].name')
+              |         Select a file
+    .form-group
+      .col-sm-offset-3.col-sm-4
+        button.btn.btn.btn-primary(type='submit')
+          i.fa.fa-pencil
+          | Add App
