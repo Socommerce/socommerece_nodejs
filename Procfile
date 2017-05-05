@@ -1,1 +1,1 @@
-web: npm rebuild node-sass && npm install && node app.js 
+web: npm rebuild apt-get install build-essential && npm install && node app.js 
