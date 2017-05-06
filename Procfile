@@ -1,1 +1,1 @@
-web: node app.js 
+web: npm rebuild node-saas && node app.js 
