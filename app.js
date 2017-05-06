@@ -124,7 +124,7 @@ app.use((req, res, next) => {
   }
   next();
 });
-app.use('/agendash', Agendash(agenda));
+
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 
 /**
