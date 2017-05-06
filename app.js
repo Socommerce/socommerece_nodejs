@@ -60,18 +60,14 @@ mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
 mongoose.connection.on('error', () => {
   console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
   process.exit();
-});   */
+});*/
 
 /**
  * Express configuration.
  */
-if (app.get('env') == 'production') {
-  console.log('Setting up Sentry Request handler');
-  Raven.config(process.env.SENTRY_URL).install();
-  app.use(Raven.requestHandler());
-}
 
-app.set('port', process.env.PORT || 5000);
+
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 // app.use(expressStatusMonitor());
@@ -128,7 +124,7 @@ app.use((req, res, next) => {
   }
   next();
 });
-
+app.use('/agendash', Agendash(agenda));
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 
 /**
@@ -151,13 +147,9 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
-
-
-
+s
 app.get('/success', userController.success);
 app.get('/fdlogin', userController.freshlogin);
-
-
 
 
 
@@ -179,6 +171,6 @@ app.listen(app.get('port'), () => {
   console.log('  Press CTRL-C to stop\n');
 });
 
-
+PSLib.setup();
 
 module.exports = app;
